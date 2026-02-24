@@ -1,0 +1,52 @@
+{
+  "version": "1.0",
+  "team": {
+    "name": "My Team",
+    "members": [],
+    "_note": "Team members are loaded from team_config.json in the repo root. Leave this empty."
+  },
+  "weights": {
+    "items_completed": 0.50,
+    "prs_authored": 0.30,
+    "code_reviews": 0.20
+  },
+  "periods": {
+    "sprint": {
+      "type": "fixed",
+      "start": "2026-01-18",
+      "end": "2026-02-07",
+      "label": "Sprint Name"
+    },
+    "last_month": {
+      "type": "relative",
+      "days_back": 30
+    },
+    "last_3_months": {
+      "type": "relative",
+      "days_back": 90
+    },
+    "last_6_months": {
+      "type": "relative",
+      "days_back": 180
+    },
+    "last_year": {
+      "type": "relative",
+      "days_back": 365,
+      "label": "Full Year"
+    }
+  },
+  "jira": {
+    "project": "PROJ",
+    "cloud_id": "yoursite.atlassian.net",
+    "done_statuses": ["Done", "Ready for Release"],
+    "_note": "Override cloud_id and project in .env.yaml"
+  },
+  "github": {
+    "org": "your-org",
+    "_note": "Override org in .env.yaml"
+  },
+  "output": {
+    "data_dir": "data",
+    "charts_dir": "data/charts"
+  }
+}

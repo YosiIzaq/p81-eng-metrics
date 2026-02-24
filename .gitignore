@@ -1,0 +1,54 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+.eggs/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Secrets and team config (NEVER commit)
+.env
+.env.yaml
+.env.yml
+team_config.json
+
+# Generated data (contains PII from API responses)
+data/
+productivity/dev_productivity_app/data/
+productivity/dev_productivity_app/raw_*.json
+productivity/dev_productivity_app/.coverage
+productivity/dev_productivity_app/report.md
+
+# Reports with team data
+productivity/sprint-*.md
+productivity/*-comparison.md
+productivity/*-trend*.md
+
+# Test data (may contain real data)
+test_data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log

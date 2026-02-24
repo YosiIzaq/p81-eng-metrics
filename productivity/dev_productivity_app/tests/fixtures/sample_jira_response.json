@@ -1,0 +1,60 @@
+{
+  "issues": [
+    {
+      "id": "10001",
+      "key": "TEST-101",
+      "fields": {
+        "summary": "Implement feature A",
+        "status": {
+          "name": "Done"
+        },
+        "issuetype": {
+          "name": "Story"
+        },
+        "customfield_10016": 5,
+        "assignee": {
+          "accountId": "test-alice-123",
+          "displayName": "Alice Developer"
+        }
+      }
+    },
+    {
+      "id": "10002",
+      "key": "TEST-102",
+      "fields": {
+        "summary": "Fix bug B",
+        "status": {
+          "name": "Ready for Release"
+        },
+        "issuetype": {
+          "name": "Bug"
+        },
+        "customfield_10016": 3,
+        "assignee": {
+          "accountId": "test-alice-123",
+          "displayName": "Alice Developer"
+        }
+      }
+    },
+    {
+      "id": "10003",
+      "key": "TEST-103",
+      "fields": {
+        "summary": "Refactor module C",
+        "status": {
+          "name": "Done"
+        },
+        "issuetype": {
+          "name": "Task"
+        },
+        "customfield_10016": null,
+        "assignee": {
+          "accountId": "test-bob-456",
+          "displayName": "Bob Engineer"
+        }
+      }
+    }
+  ],
+  "total": 3,
+  "isLast": true
+}

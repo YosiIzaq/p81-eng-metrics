@@ -1,0 +1,24 @@
+{
+  "team_name": "My Team",
+  "members": [
+    {
+      "github_username": "gh-user-1",
+      "display_name": "Developer One",
+      "jira_account_id": "abc123-def456-ghi789",
+      "color": "#1f77b4"
+    },
+    {
+      "github_username": "gh-user-2",
+      "display_name": "Developer Two",
+      "jira_account_id": "xyz789-uvw456-rst123",
+      "color": "#ff7f0e"
+    }
+  ],
+  "jira": {
+    "project": "PROJ",
+    "cloud_id": "yoursite.atlassian.net"
+  },
+  "github": {
+    "org": "your-org"
+  }
+}

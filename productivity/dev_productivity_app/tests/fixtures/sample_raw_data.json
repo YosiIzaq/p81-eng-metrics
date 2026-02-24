@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-01-21T12:00:00Z",
+  "config_version": "1.0",
+  "period": {
+    "name": "sprint",
+    "start": "2026-01-01",
+    "end": "2026-01-21"
+  },
+  "metrics": {
+    "Alice Developer": {
+      "items_completed": 50,
+      "story_points": 25,
+      "prs_authored": 20,
+      "code_reviews": 30
+    },
+    "Bob Engineer": {
+      "items_completed": 30,
+      "story_points": 15,
+      "prs_authored": 25,
+      "code_reviews": 40
+    },
+    "Carol Coder": {
+      "items_completed": 40,
+      "story_points": 20,
+      "prs_authored": 15,
+      "code_reviews": 50
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/productivity-scorer/config.schema.json",
+  "title": "Productivity Scorer Configuration",
+  "description": "Configuration schema for the team productivity scoring tool",
+  "type": "object",
+  "required": ["version", "team", "weights", "periods", "jira"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "Configuration schema version"
+    },
+    "team": {
+      "type": "object",
+      "required": ["name", "members"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Team name"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TeamMember"
+          },
+          "description": "List of team members (optional - loaded from team_config.json)"
+        }
+      }
+    },
+    "weights": {
+      "type": "object",
+      "required": ["items_completed", "prs_authored", "code_reviews"],
+      "properties": {
+        "items_completed": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Weight for Jira items completed (0-1)"
+        },
+        "prs_authored": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Weight for PRs authored (0-1)"
+        },
+        "code_reviews": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Weight for code reviews performed (0-1)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "periods": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "$ref": "#/definitions/Period"
+      },
+      "description": "Named time periods for data fetching"
+    },
+    "jira": {
+      "type": "object",
+      "required": ["project", "done_statuses"],
+      "properties": {
+        "project": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]+$",
+          "description": "Jira project key"
+        },
+        "cloud_id": {
+          "type": "string",
+          "description": "Atlassian cloud ID or site URL"
+        },
+        "done_statuses": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "description": "Jira statuses considered as 'done'"
+        }
+      }
+    },
+    "github": {
+      "type": "object",
+      "properties": {
+        "org": {
+          "type": "string",
+          "description": "GitHub organization name"
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "data_dir": {
+          "type": "string",
+          "description": "Directory for storing raw data files"
+        },
+        "charts_dir": {
+          "type": "string",
+          "description": "Directory for storing chart images"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "TeamMember": {
+      "type": "object",
+      "required": ["name", "github_username", "jira_account_id"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Full name of team member"
+        },
+        "github_username": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9-]+$",
+          "description": "GitHub username"
+        },
+        "jira_account_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Jira account ID (UUID format)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Period": {
+      "type": "object",
+      "required": ["type"],
+      "oneOf": [
+        {
+          "properties": {
+            "type": { "const": "fixed" },
+            "start": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "description": "Start date (YYYY-MM-DD)"
+            },
+            "end": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "description": "End date (YYYY-MM-DD)"
+            }
+          },
+          "required": ["type", "start", "end"]
+        },
+        {
+          "properties": {
+            "type": { "const": "relative" },
+            "days_back": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Number of days back from today"
+            }
+          },
+          "required": ["type", "days_back"]
+        }
+      ]
+    }
+  }
+}

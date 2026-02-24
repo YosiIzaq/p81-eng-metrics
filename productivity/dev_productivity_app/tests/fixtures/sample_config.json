@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "team": {
+    "name": "Test Team",
+    "members": [
+      {
+        "name": "Alice Developer",
+        "github_username": "alice-dev",
+        "jira_account_id": "test-alice-123"
+      },
+      {
+        "name": "Bob Engineer",
+        "github_username": "bob-eng",
+        "jira_account_id": "test-bob-456"
+      },
+      {
+        "name": "Carol Coder",
+        "github_username": "carol-code",
+        "jira_account_id": "test-carol-789"
+      }
+    ]
+  },
+  "weights": {
+    "items_completed": 0.50,
+    "prs_authored": 0.30,
+    "code_reviews": 0.20
+  },
+  "periods": {
+    "sprint": {
+      "type": "fixed",
+      "start": "2026-01-01",
+      "end": "2026-01-21"
+    },
+    "last_month": {
+      "type": "relative",
+      "days_back": 30
+    }
+  },
+  "jira": {
+    "project": "TEST",
+    "cloud_id": "test.atlassian.net",
+    "done_statuses": ["Done", "Ready for Release"]
+  },
+  "github": {
+    "org": "test-org"
+  },
+  "output": {
+    "data_dir": "data",
+    "charts_dir": "data/charts"
+  }
+}
