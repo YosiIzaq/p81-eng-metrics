@@ -22,7 +22,7 @@ htmlcov/
 team_config.json
 
 # Generated data (contains PII from API responses)
-data/
+/data/
 productivity/dev_productivity_app/data/
 productivity/dev_productivity_app/raw_*.json
 productivity/dev_productivity_app/.coverage
@@ -35,6 +35,10 @@ productivity/*-trend*.md
 
 # Test data (may contain real data)
 test_data/
+
+# Node
+node_modules/
+dist/
 
 # OS
 .DS_Store
